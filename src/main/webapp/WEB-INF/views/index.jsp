@@ -6,7 +6,7 @@
 
 <div class="container">
 
-<c:forEach var="board" items="${boards}">
+<c:forEach var="board" items="${boards.content}">
     <div class="card m-2" style="height: 100px;">
         <div class="card-body">
             <h4 class="card-title"> ${board.title} </h4>

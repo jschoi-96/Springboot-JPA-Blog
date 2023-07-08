@@ -71,8 +71,11 @@ public class DummyControllerTest {
     // 한 페이지 당 두건의 데이터를 리턴받아 볼 예정
     @GetMapping("/dummy/user")
     public Page <User> pageList(@PageableDefault(size = 2 , sort = "id" , direction = Sort.Direction.DESC) Pageable pageable) {
-        Page<User> users = userRepository.findAll(pageable);
-        return users;
+
+        Page <User> pagingUser = userRepository.findAll(pageable);
+
+        List<User> users = pagingUser.getContent();
+        return pagingUser;
     }
 
     // {id} 주소로 파라메터를 전달 받을 수 있음
